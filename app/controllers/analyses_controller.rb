@@ -4,5 +4,12 @@ class AnalysesController < ApplicationController
   end
 
   def create
+   @analysis = Analysis.new(post_params)
+  end
+  
+  private
+
+  def post_params
+    params.require(:analysis).permit(:document)
   end
 end
