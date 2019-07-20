@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  stop_word: false
+  words: MyText
+
+two:
+  stop_word: false
+  words: MyText
