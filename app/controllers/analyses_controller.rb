@@ -11,6 +11,9 @@ class AnalysesController < ApplicationController
    @analysis = Analysis.new
    document = post_params["document"]
    word_count = @analysis.count(document)
+   if stop_words == "1"
+     word_count = @analysis.remove_stop_words(word_count)
+   end
    @analysis.words = word_count
    @analysis.document = document 
 
@@ -21,5 +24,9 @@ class AnalysesController < ApplicationController
 
   def post_params
     params.require(:analysis).permit(:document)
+  end
+
+  def stop_words
+    params.require(:analysis).require(:stop_words)
   end
 end

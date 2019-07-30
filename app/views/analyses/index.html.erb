@@ -1,4 +1,5 @@
 <%= form_for @analysis do |form| %>
   <%= form.file_field :document %>
+  <%= form.check_box :stop_words %>
   <%= form.submit "Analyze" %>
 <% end %>
