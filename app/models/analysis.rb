@@ -1,3 +1,5 @@
+require_relative '../../lib/parser'
+
 class Analysis < ApplicationRecord
   has_one_attached :document
 
@@ -5,7 +7,8 @@ class Analysis < ApplicationRecord
     word_count = {}
     content = document.read
     words = content.split(" ")
-    words.each do |word|
+    parsed_words = Parser::parse(words)
+    parsed_words.each do |word|
       word_count[word] ||= 0
       word_count[word] += 1
     end
