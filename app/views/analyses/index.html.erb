@@ -1,5 +1,8 @@
-<%= form_for @analysis do |form| %>
-  <%= form.file_field :document %>
-  <%= form.check_box :stop_words %>
-  <%= form.submit "Analyze" %>
-<% end %>
+<div class="row">
+  <div class="col s6">
+    <%= render partial: "analysis_form", locals: {analysis: @analysis} %>
+  </div>
+  <div class="col s6">
+    <%= render partial: "analyses", locals: {analyses: @analyses} %>
+  </div>
+</div>

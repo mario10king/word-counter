@@ -1,0 +1,20 @@
+<%= form_for analysis do |form| %>
+  <div class="file-field input-field">
+    <div class="btn">
+      <span>File</span>
+      <%= form.file_field :document %>
+    </div>
+    <div class="file-path-wrapper">
+      <input class="file-path validate" type="text">
+    </div>
+  </div>
+  <p>
+    <label>
+      <%= form.check_box :stop_words %>
+      <span>Use Stop Words</span>
+    </label>
+  </p>
+  <%= form.submit "Analyze", :class => "btn waves-effect waves-light" %>
+<% end %>
+
+

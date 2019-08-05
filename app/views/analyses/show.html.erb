@@ -1,1 +1,15 @@
-<%= @analysis.words %>
+<table>
+  <thead>
+    <th>Document Name</th>
+    <th>Stop Words Removed?</th>
+    <th>Date Analyzed</th>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= @analysis.document.filename %></td>
+      <td><%= @analysis.stop_word ? "True" : "False" %></td>
+      <td><%= @analysis.created_at.strftime("%m/%d/%y") %></td>
+    </tr>
+  </tbody>
+</table>
+<%= @analysis.words%>

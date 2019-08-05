@@ -1,0 +1,16 @@
+<table>
+  <thead>
+    <th>Document Name</th>
+    <th>Stop Words Removed?</th>
+    <th>Date Analyzed</th>
+  </thead>
+  <tbody>
+    <% analyses.each do |analysis| %>
+      <tr>
+        <td><%= link_to analysis.document.filename, analysis %></td>
+        <td><%= analysis.stop_word ? "True" : "False" %></td>
+        <td><%= analysis.created_at.strftime("%m/%d/%y") %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
