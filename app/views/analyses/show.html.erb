@@ -6,7 +6,7 @@
   </thead>
   <tbody>
     <tr>
-      <td><%= @analysis.document.filename %></td>
+      <td><%= link_to @analysis.document.filename, rails_blob_path(@analysis.document, dispositon: 'preview') %></td>
       <td><%= @analysis.stop_word ? "True" : "False" %></td>
       <td><%= @analysis.created_at.strftime("%m/%d/%y") %></td>
     </tr>
