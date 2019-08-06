@@ -6,14 +6,14 @@
   </thead>
   <tbody>
     <tr>
-      <td><%= link_to @analysis.document.filename, rails_blob_path(@analysis.document, dispositon: 'preview') %></td>
-      <td><%= @analysis.stop_word ? "True" : "False" %></td>
-      <td><%= @analysis.created_at.strftime("%m/%d/%y") %></td>
+      <td><%= link_to analysis.document.filename, rails_blob_path(analysis.document, dispositon: 'preview') %></td>
+      <td><%= analysis.stop_word ? "True" : "False" %></td>
+      <td><%= analysis.created_at.strftime("%m/%d/%y") %></td>
     </tr>
   </tbody>
 </table>
 
 <div class= "row">
-  <%= render partial: "words_table", locals: {words: @analysis.common_words.slice(0, 13), start: 1} %>
-  <%= render partial: "words_table", locals: {words: @analysis.common_words.slice(13, 12), start: 14} %>
+  <%= render partial: "words_table", locals: {words: analysis.common_words.slice(0, 13), start: 1} %>
+  <%= render partial: "words_table", locals: {words: analysis.common_words.slice(13, 12), start: 14} %>
 </div>

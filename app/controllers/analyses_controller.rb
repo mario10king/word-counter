@@ -1,34 +1,37 @@
+require_relative '../../lib/parser'
+
 class AnalysesController < ApplicationController
   def index 
-   @analysis = Analysis.new
-   @analyses = Analysis.last(10).reverse
+    analysis = Analysis.new
+    analyses = Analysis.last(10).reverse
+
+    render 'index', locals: {analysis: analysis, analyses: analyses} 
   end
 
   def show
-    @analysis = Analysis.find(params[:id])
+    analysis = Analysis.find(params[:id])
+
+    render 'show', locals: {analysis: analysis} 
   end
 
   def create
-   @analysis = Analysis.new
-   document = post_params["document"]
-   word_count = @analysis.count(document)
-   if stop_words == "1"
-     @analysis.stop_word = true 
-     word_count = @analysis.remove_stop_words(word_count)
-   end
-   @analysis.words = word_count.to_json
-   @analysis.document = document 
+    word_count = Parser::parse_doc(document, stop_word)
+    analysis = Analysis.new(document: document, stop_word: stop_word, words: word_count.to_json)
 
-   redirect_to @analysis if @analysis.save
+    redirect_to analysis if analysis.save
   end
-  
+
   private
 
-  def post_params
-    params.require(:analysis).permit(:document)
+  def stop_word 
+    stop_word_param == "1" ? true : false
   end
 
-  def stop_words
-    params.require(:analysis).require(:stop_words)
+  def document 
+    params.require(:analysis).require(:document)
+  end
+
+  def stop_word_param
+    params.require(:analysis).require(:stop_word)
   end
 end
