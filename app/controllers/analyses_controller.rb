@@ -16,7 +16,7 @@ class AnalysesController < ApplicationController
      @analysis.stop_word = true 
      word_count = @analysis.remove_stop_words(word_count)
    end
-   @analysis.words = word_count
+   @analysis.words = word_count.to_json
    @analysis.document = document 
 
    redirect_to @analysis if @analysis.save

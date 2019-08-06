@@ -15,6 +15,10 @@ class Analysis < ApplicationRecord
     word_count
   end
 
+  def common_words
+    JSON.parse(words).sort_by{ |k, v| -v}.first(25)
+  end
+
   def remove_stop_words(word_count)
     word_count.except(*stop_words)
   end

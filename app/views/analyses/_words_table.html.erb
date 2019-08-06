@@ -1,0 +1,17 @@
+<table class="col s6">
+  <thead>
+    <th>Number</th>
+    <th>Word</th>
+    <th>Occurences</th>
+  </thead>
+  <tbody>
+    <% words.each do |word| %>
+      <tr>
+        <td><%= "#{start}." %></td>
+        <td><%= word[0] %></td>
+        <td><%= word[1] %></td>
+      </tr>
+      <% start += 1 %>
+    <% end %>
+  </tbody>
+</table>
