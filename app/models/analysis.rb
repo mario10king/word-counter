@@ -1,4 +1,5 @@
 require_relative '../../lib/parser'
+require_relative '../../lib/stemmer'
 
 class Analysis < ApplicationRecord
   has_one_attached :document
@@ -8,7 +9,12 @@ class Analysis < ApplicationRecord
     content = document.read
     words = content.split(" ")
     parsed_words = Parser::parse(words)
-    parsed_words.each do |word|
+
+    stemmed_words = parsed_words.map do |word|
+     Stemmer::Noun::singularize(word)
+     Stemmer::Verb::unconjugate(word)
+    end
+    stemmed_words.each do |word|
       word_count[word] ||= 0
       word_count[word] += 1
     end

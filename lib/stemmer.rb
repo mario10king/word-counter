@@ -4,14 +4,14 @@ module Stemmer
       case word
       when custom_words[word] && word
         custom_words[word]
-      when /(s|x|sh|ch)(es)\z/
-        word.gsub(/(s|x|sh|ch)(es)\z/){ |str| str.delete_suffix("es")}
+      #when /(s|x|sh|ch)(es)\z/
+        #word.gsub(/(s|x|sh|ch)(es)\z/){ |str| str.delete_suffix("es")}
       when /(ed)\z/
         word.gsub(/(ed)\z/, "")
       when /(ing)\z/
         word.gsub(/(ing)\z/, "")
-      when /[^s](s)\z/
-        word.gsub(/[^s](s)\z/){ |str| str.delete_suffix("s")}
+      #when /[^s](s)\z/
+        #word.gsub(/[^s](s)\z/){ |str| str.delete_suffix("s")}
       else
         word
       end
