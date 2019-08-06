@@ -2,7 +2,6 @@ class Analysis < ApplicationRecord
   has_one_attached :document
 
   validates :document, presence: true
-  validates :stop_word, presence: true
   validates :words, presence: true
 
   def common_words(n=25)
