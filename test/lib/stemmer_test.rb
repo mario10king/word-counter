@@ -6,14 +6,14 @@ class StemmerTest < ActiveSupport::TestCase
     {"talk" => ["talking", "talks", "talked", "talk"], "pass" => ["pass", "passing", "passed", "passes"]}
   end
 
-  def test_verb_stemmer 
-    verbs.each do |key, values| 
-      values.each do |value| 
-        unconjugated_word = Stemmer::Verb::unconjugate(value)
-        assert_equal key, unconjugated_word 
-      end
-    end
-  end
+  #def test_verb_stemmer 
+    #verbs.each do |key, values| 
+      #values.each do |value| 
+        #unconjugated_word = Stemmer::Verb::unconjugate(value)
+        #assert_equal key, unconjugated_word 
+      #end
+    #end
+  #end
 
   def nouns
     {"cat" => ["cats", "cat"], "hero" => ["heroes"]}
