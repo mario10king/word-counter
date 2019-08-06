@@ -13,6 +13,7 @@ module Parser
     if stop_word
       words_count = remove_stop_words(words_count)
     end
+    words_count
   end
 
   def self.parse_words(words)
