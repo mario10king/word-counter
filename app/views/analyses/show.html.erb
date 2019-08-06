@@ -15,5 +15,8 @@
 
 <div class= "row">
   <%= render partial: "words_table", locals: {words: analysis.common_words.slice(0, 13), start: 1} %>
-  <%= render partial: "words_table", locals: {words: analysis.common_words.slice(13, 12), start: 14} %>
+
+  <% if  analysis.common_words.length > 13 %>
+    <%= render partial: "words_table", locals: {words: analysis.common_words.slice(13, 12), start: 14} %>
+  <% end %>
 </div>
