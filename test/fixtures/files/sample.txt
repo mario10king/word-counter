@@ -1,0 +1,3 @@
+This is a sample file. Capybara will upload this file in the intergration tests.
+The number 99 will not be counted as a word.
+Off is a stop word.
