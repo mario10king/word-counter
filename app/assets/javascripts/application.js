@@ -15,3 +15,10 @@
 //= require turbolinks
 //= require_tree .
 //= require materialize
+//= require jquery 
+
+$(document).ready(function(){
+  $("input:file").change(function (){
+    $("#analyze-button").parent().removeClass('disabled')
+  });
+})
