@@ -1,6 +1,7 @@
 ## Summary
 * This application will find the most common words in a User-supplied document.
 * Words are stemmed before being counted
+   * Stemming is done without the use of an external library
 * Stop Words can be excluded in the analysis
 
 ## Libraries / Frameworks Used
